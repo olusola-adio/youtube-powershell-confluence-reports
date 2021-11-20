@@ -6,36 +6,36 @@ Create app authentication
 Create app authentication
 
 .PARAMETER BaseURI
-The name of the resource group that contains the APIM instnace
+The name of the BaseURI
 
 .PARAMETER confluenceApiUsername
-The name of the resource group that contains the APIM instnace
+The name of the confluence user
 
 .PARAMETER confluenceApiTokenPass
-The name of the function app
+confluence token
 
 .PARAMETER ConfluenceInventoryPageId
-The name of the resource group that contains the APIM instnace
+The ID of the Page to publish to
 
 .PARAMETER confluenceTable
-The name of the function app
+The name of the confluence table
 
 .EXAMPLE
-Create-AppAuthentication -ResourceGroup dfc-foo-bar-rg -FunctionAppName
+PublishConfluenceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId) ConfluenceTable $(ConfluenceTable)
 
 #>
 [CmdletBinding()]
 Param(
-    [Parameter(Mandatory = $false)]
-    [String]$BaseURI = 'https://logion-ltd.atlassian.net/wiki',
-    [Parameter(Mandatory = $false)]
-    [String]$ConfluenceApiUsername = 'olusola.adio@logion.co.uk',
-    [Parameter(Mandatory = $false)]
-    [String]$ConfluenceApiTokenPass = "ogIfPdW1exBfFukY4enl6191",
-    [Parameter(Mandatory = $false)]
-    [String]$ConfluenceInventoryPageId = '98422',
-    [parameter(Mandatory = $false)]
-    [object[]]$confluenceTable = (Get-AzResource |
+    [Parameter(Mandatory = $true)]
+    [String]$BaseURI,
+    [Parameter(Mandatory = $true)]
+    [String]$ConfluenceApiUsername,
+    [Parameter(Mandatory = $true)]
+    [String]$ConfluenceApiTokenPass,
+    [Parameter(Mandatory = $true)]
+    [String]$ConfluenceInventoryPageId,
+    [parameter(Mandatory = $true)]
+    [object[]]$ConfluenceTable = (Get-AzResource |
     select-object ResourceGroupName, Name, ResourceType, Location |
     Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String)
 )
@@ -51,11 +51,11 @@ try {
     $confluenceCredential = New-Object System.Management.Automation.PSCredential ($ConfluenceApiUsername, $pass)
     Set-ConfluenceInfo -BaseURI $BaseURI -Credential $confluenceCredential
 
-    # $confluenceTable = $resources |
+    # $ConfluenceTable = $resources |
     # select-object ResourceGroupName, Name, ResourceType, Location |
     # Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
 
-    $Body = $confluenceTable | ConvertTo-ConfluenceStorageFormat
+    $Body = $ConfluenceTable | ConvertTo-ConfluenceStorageFormat
 
     $subscription = (get-azcontext).Subscription.Name
     $timestamp = (Get-Date).ToString('F')
