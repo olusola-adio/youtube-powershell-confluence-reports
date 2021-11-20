@@ -69,8 +69,6 @@ if (!$pesterModule) {
 Write-Host "Pester version: $($pesterModule.Version.Major).$($pesterModule.Version.Minor).$($pesterModule.Version.Build)"
 $pesterModule | Import-Module
 
-Import-Module -Name .\Resources\PowerShellScripts\DemoModule.psm1 -Verbose
-
 if ($Publish) {
     if (!(Test-Path -Path $ResultsPath)) {
         New-Item -Path $ResultsPath -ItemType Directory -Force | Out-Null
