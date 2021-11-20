@@ -47,7 +47,9 @@ try {
     select-object ResourceGroupName, Name, ResourceType, Location |
     Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
 
-    ./PublishConfluenceReport.ps1 -BaseURI $BaseURI -confluenceApiUsername $ConfluenceApiUsername -ConfluenceApiTokenPass $ConfluenceApiTokenPass -ConfluenceInventoryPageId $ConfluenceInventoryPageId -ConfluenceTable $ConfluenceTable
+    $ScriptToRun = $PSScriptRoot + "\PowerShellScripts\PublishConfluenceReport.ps1 -BaseURI $BaseURI -confluenceApiUsername $ConfluenceApiUsername -ConfluenceApiTokenPass $ConfluenceApiTokenPass -ConfluenceInventoryPageId $ConfluenceInventoryPageId -ConfluenceTable $ConfluenceTable"
+
+    &$ScriptToRun
 
 }
 catch {
