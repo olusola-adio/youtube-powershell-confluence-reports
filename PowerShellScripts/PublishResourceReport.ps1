@@ -17,7 +17,7 @@ confluence token
 .PARAMETER ConfluenceInventoryPageId
 The ID of the Page to publish to
 
-.PARAMETER ReportTitle
+.PARAMETER ReportName
 The name of the ReportTitle
 
 .EXAMPLE
@@ -35,7 +35,7 @@ Param(
     [Parameter(Mandatory = $true)]
     [String]$ConfluenceInventoryPageId,
     [Parameter(Mandatory = $true)]
-    [String]$ReportTitle
+    [String]$ReportName
 )
 
 try {
@@ -49,7 +49,7 @@ try {
     select-object ResourceGroupName, Name, ResourceType, Location |
     Sort-Object ResourceGroupName, Name
 
-    & $PSScriptRoot/PublishConfluenceReport.ps1 -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluenceInventoryPageId $($ConfluenceInventoryPageId) -ReportTitle $($ReportTitle) -ConfluenceTable $($ConfluenceTable)
+    & $PSScriptRoot/PublishConfluenceReport.ps1 -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluenceInventoryPageId $($ConfluenceInventoryPageId) -ReportName $($ReportName) -ConfluenceTable $($ConfluenceTable)
 }
 catch {
     throw $_

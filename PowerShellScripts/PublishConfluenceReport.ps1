@@ -17,7 +17,7 @@ confluence token
 .PARAMETER ConfluenceInventoryPageId
 The ID of the Page to publish to
 
-.PARAMETER ReportTitle
+.PARAMETER ReportName
 The name of the ReportTitle
 
 .PARAMETER confluenceTable
@@ -38,7 +38,7 @@ Param(
     [Parameter(Mandatory = $true)]
     [String]$ConfluenceInventoryPageId,
     [Parameter(Mandatory = $true)]
-    [String]$ReportTitle,
+    [String]$ReportName,
     [parameter(Mandatory = $true)]
     [object[]]$ConfluenceTable
 )
@@ -53,7 +53,7 @@ try {
 
     $subscription = (get-azcontext).Subscription.Name
     $timestamp = (Get-Date).ToString('F')
-    New-ConfluencePage -Title "$($ReportTitle) - $subscription - $timestamp" -Body $Body -ParentID $confluenceInventoryPageId
+    New-ConfluencePage -Title "$($ReportName) - $subscription - $timestamp" -Body $Body -ParentID $confluenceInventoryPageId
 
 }
 catch {

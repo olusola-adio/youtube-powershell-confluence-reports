@@ -44,7 +44,4 @@ stages:
   jobs:
   - template: JobTemplates\PublishConfluenceReport.yml
     parameters:
-      BaseURI: $(BaseURI)
-      ConfluenceApiUsername: $(ConfluenceApiUsername)
-      ConfluenceApiTokenPass: $(ConfluenceApiTokenPass)
-      ConfluenceInventoryPageId: $(ConfluenceInventoryPageId)
+      ReportName: 'Resource Report'

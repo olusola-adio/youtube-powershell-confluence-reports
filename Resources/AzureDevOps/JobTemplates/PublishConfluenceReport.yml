@@ -1,9 +1,5 @@
 parameters:
-  BaseURI: ''
-  ConfluenceApiUsername:  ''
-  ConfluenceApiTokenPass:  ''
-  ConfluenceInventoryPageId:  ''
-  ReportTitle:  'Resource Report'
+  ReportName: ''
  
 jobs:
 - job: PublishConfluenceInventoryReport
@@ -34,6 +30,6 @@ jobs:
                         -confluenceApiUsername $(ConfluenceApiUsername) 
                         -ConfluenceApiTokenPass $(ConfluenceApiTokenPass)  
                         -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)
-                        -ReportTitle $(ReportTitle)'
+                        -ReportName ${{ parameters.ReportName }}'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion
