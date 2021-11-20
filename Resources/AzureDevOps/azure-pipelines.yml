@@ -1,0 +1,47 @@
+pool:
+  vmImage: 'windows-latest'
+
+pr:
+  branches:
+    include:
+    - master
+
+stages:
+- stage: Test
+  displayName: Test and Publish
+  jobs:
+  - template: JobTemplates\PesterTests.yml
+    parameters:
+      TestsPath: 'Tests'
+      ResultsPath: 'Publish'
+      TestResultsFile: 'Q-Test-Pester.xml'
+      Tag: 'Quality'
+      Verbosity: 'Detailed'
+      JobName: 'QualityTests'
+      JobDisplayName: 'Pester Code Quality Test'
+  - job: Publish
+    displayName: Publish
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Copy PowerShell Files to: $(Build.ArtifactStagingDirectory)'
+      inputs:
+        Contents: 'Resources/PowerShellScripts/**/*.ps1'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/Scripts'
+        flattenFolders: true
+    - task: PublishPipelineArtifact@1
+      displayName: Publish Artifact
+      inputs:
+        artifact: PowerShellScripts
+        targetPath: '$(Build.ArtifactStagingDirectory)/Scripts'
+- stage: PublishConfluenceReport
+  displayName: Publish Confluence Report
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  variables:
+    - group: ConfluenceVariableGroup
+  jobs:
+  - template: JobTemplates\PublishConfluenceReport.yml
+    parameters:
+      BaseURI: $(BaseURI)
+      ConfluenceApiUsername: $(ConfluenceApiUsername)
+      ConfluenceApiTokenPass: $(ConfluenceApiTokenPass)
+      ConfluenceInventoryPageId: $(ConfluenceInventoryPageId)
