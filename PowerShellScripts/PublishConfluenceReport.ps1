@@ -20,6 +20,9 @@ The ID of the Page to publish to
 .PARAMETER confluenceTable
 The name of the confluence table
 
+.PARAMETER ReportTitle
+The name of the ReportTitle
+
 .EXAMPLE
 PublishConfluenceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId) ConfluenceTable $(ConfluenceTable)
 
