@@ -45,7 +45,7 @@ try {
 
     $ConfluenceTable = $resources |
     select-object ResourceGroupName, Name, ResourceType, Location |
-    Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
+    Sort-Object ResourceGroupName, Name
 
     $ScriptToRun = $PSScriptRoot + "\PublishConfluenceReport.ps1 -BaseURI $BaseURI -confluenceApiUsername $ConfluenceApiUsername -ConfluenceApiTokenPass $ConfluenceApiTokenPass -ConfluenceInventoryPageId $ConfluenceInventoryPageId -ConfluenceTable $ConfluenceTable"
 

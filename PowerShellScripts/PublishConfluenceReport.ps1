@@ -53,7 +53,7 @@ try {
     # select-object ResourceGroupName, Name, ResourceType, Location |
     # Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
 
-    $Body = $ConfluenceTable | ConvertTo-ConfluenceStorageFormat
+    $Body = $ConfluenceTable | ConvertTo-ConfluenceTable | Out-String | ConvertTo-ConfluenceStorageFormat
 
     $subscription = (get-azcontext).Subscription.Name
     $timestamp = (Get-Date).ToString('F')
