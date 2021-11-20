@@ -47,9 +47,7 @@ try {
     select-object ResourceGroupName, Name, ResourceType, Location |
     Sort-Object ResourceGroupName, Name
 
-    $ScriptToRun = $PSScriptRoot + "\PublishConfluenceReport.ps1 -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluenceInventoryPageId $($ConfluenceInventoryPageId) -ConfluenceTable $($ConfluenceTable)"
-
-    &$ScriptToRun
+    & $(System.ArtifactsDirectory) + "\PublishConfluenceReport.ps1" -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluenceInventoryPageId $($ConfluenceInventoryPageId) -ConfluenceTable $($ConfluenceTable)
 
 }
 catch {
