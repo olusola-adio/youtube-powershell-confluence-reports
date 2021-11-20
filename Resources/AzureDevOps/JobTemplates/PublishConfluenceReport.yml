@@ -12,14 +12,14 @@ jobs:
       clean: all
   steps:
   - task: PowerShell@2
-    displayName: 'Installing dependencies'
+    displayName: 'Installing ConfluencePS'
     inputs:
       targetType: inline
       script: 'Install-Module ConfluencePS -force'
       workingDirectory: '$(System.DefaultWorkingDirectory)'
       errorActionPreference: 'stop'
   - task: PowerShell@2
-    displayName: 'Installing dependencies 2'
+    displayName: 'Importing ConfluencePS'
     inputs:
       targetType: inline
       script: 'Import-Module ConfluencePS -force'

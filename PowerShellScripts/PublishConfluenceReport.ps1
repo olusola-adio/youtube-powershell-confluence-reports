@@ -53,7 +53,7 @@ try {
 
     $subscription = (get-azcontext).Subscription.Name
     $timestamp = (Get-Date).ToString('F')
-    New-ConfluencePage -Title "$ReportTitle - $subscription - $timestamp" -Body $Body -ParentID $confluenceInventoryPageId
+    New-ConfluencePage -Title "$($ReportTitle) - $subscription - $timestamp" -Body $Body -ParentID $confluenceInventoryPageId
 
 }
 catch {
