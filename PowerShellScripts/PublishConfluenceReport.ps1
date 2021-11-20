@@ -35,29 +35,22 @@ Param(
     [Parameter(Mandatory = $true)]
     [String]$ConfluenceInventoryPageId,
     [parameter(Mandatory = $true)]
-    [object[]]$ConfluenceTable
+    [object[]]$ConfluenceTable,
+    [Parameter(Mandatory = $true)]
+    [String]$ReportTitle
 )
 
 try {
-
-    $resources = Get-AzResource
-    foreach ($resource in $resources) {
-        Write-Host "Name: $($resource.Name)       ResourceGroupName: $($resource.ResourceGroupName)        Resource Type: $($resource.ResourceType)       Location: $($resource.Location)"
-    }
 
     $pass = ConvertTo-SecureString -String $ConfluenceApiTokenPass -AsPlainText -Force
     $confluenceCredential = New-Object System.Management.Automation.PSCredential ($ConfluenceApiUsername, $pass)
     Set-ConfluenceInfo -BaseURI $BaseURI -Credential $confluenceCredential
 
-    # $ConfluenceTable = $resources |
-    # select-object ResourceGroupName, Name, ResourceType, Location |
-    # Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
-
     $Body = $ConfluenceTable | ConvertTo-ConfluenceTable | Out-String | ConvertTo-ConfluenceStorageFormat
 
     $subscription = (get-azcontext).Subscription.Name
     $timestamp = (Get-Date).ToString('F')
-    New-ConfluencePage -Title "Resource Report - $subscription - $timestamp" -Body $Body -ParentID $confluenceInventoryPageId
+    New-ConfluencePage -Title "$ReportTitle - $subscription - $timestamp" -Body $Body -ParentID $confluenceInventoryPageId
 
 }
 catch {

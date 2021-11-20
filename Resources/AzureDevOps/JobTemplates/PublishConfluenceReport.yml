@@ -3,6 +3,7 @@ parameters:
   ConfluenceApiUsername:  ''
   ConfluenceApiTokenPass:  ''
   ConfluenceInventoryPageId:  ''
+  ReportTitle:  ''
  
 jobs:
 - job: PublishConfluenceInventoryReport
@@ -32,6 +33,7 @@ jobs:
       ScriptArguments: '-BaseURI $(BaseURI)
                         -confluenceApiUsername $(ConfluenceApiUsername) 
                         -ConfluenceApiTokenPass $(ConfluenceApiTokenPass)  
-                        -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)'
+                        -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)
+                        -ReportTitle $(ReportTitle)'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion

@@ -48,3 +48,4 @@ stages:
       ConfluenceApiUsername: $(ConfluenceApiUsername)
       ConfluenceApiTokenPass: $(ConfluenceApiTokenPass)
       ConfluenceInventoryPageId: $(ConfluenceInventoryPageId)
+      ReportTitle: 'Resource Report'
