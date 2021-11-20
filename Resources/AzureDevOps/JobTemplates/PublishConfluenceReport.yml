@@ -30,6 +30,6 @@ jobs:
                         -confluenceApiUsername $(ConfluenceApiUsername) 
                         -ConfluenceApiTokenPass $(ConfluenceApiTokenPass)  
                         -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)
-                        -ReportName ${{ parameters.ReportName }}'
+                        -ReportName "${{ parameters.ReportName }}"'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion
