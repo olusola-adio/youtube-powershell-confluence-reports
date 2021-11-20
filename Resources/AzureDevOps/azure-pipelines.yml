@@ -25,7 +25,7 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy PowerShell Files to: $(Build.ArtifactStagingDirectory)'
       inputs:
-        Contents: 'Resources/PowerShellScripts/**/*.ps1'
+        Contents: 'PowerShellScripts/**/*.ps1'
         TargetFolder: '$(Build.ArtifactStagingDirectory)/Scripts'
         flattenFolders: true
     - task: PublishPipelineArtifact@1
