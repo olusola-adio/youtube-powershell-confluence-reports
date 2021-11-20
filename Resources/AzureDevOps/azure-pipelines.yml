@@ -21,6 +21,7 @@ stages:
       JobDisplayName: 'Pester Code Quality Test'
   - job: Publish
     displayName: Publish
+    condition: succeeded()
     steps:
     - task: CopyFiles@2
       displayName: 'Copy PowerShell Files to: $(Build.ArtifactStagingDirectory)'
@@ -33,11 +34,12 @@ stages:
       inputs:
         artifact: PowerShellScripts
         targetPath: '$(Build.ArtifactStagingDirectory)/Scripts'
+
 - stage: PublishConfluenceReport
   displayName: Publish Confluence Report
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: succeeded()
   variables:
-    - group: ConfluenceVariableGroup
+  - group: ConfluenceVariableGroup
   jobs:
   - template: JobTemplates\PublishConfluenceReport.yml
     parameters:
