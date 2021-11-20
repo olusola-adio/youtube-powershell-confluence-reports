@@ -6,6 +6,13 @@ pr:
     include:
     - master
 
+schedules:
+- cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"
+  displayName: 5 minute build
+  branches:
+    include:
+    - master
+    
 stages:
 - stage: Test
   displayName: Test and Publish
