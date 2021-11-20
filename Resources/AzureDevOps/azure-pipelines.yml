@@ -37,6 +37,7 @@ stages:
 
 - stage: PublishConfluenceReport
   displayName: Publish Confluence Report
+  dependsOn: Test
   condition: succeeded()
   variables:
   - group: ConfluenceVariableGroup
