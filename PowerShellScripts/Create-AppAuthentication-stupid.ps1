@@ -51,9 +51,9 @@ try {
     $confluenceCredential = New-Object System.Management.Automation.PSCredential ($ConfluenceApiUsername, $pass)
     Set-ConfluenceInfo -BaseURI $BaseURI -Credential $confluenceCredential
 
-    # $confluenceTable = $resources |
-    # select-object ResourceGroupName, Name, ResourceType, Location |
-    # Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
+    $confluenceTable = $resources |
+    select-object ResourceGroupName, Name, ResourceType, Location |
+    Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
 
     Write-Host "$BaseURI"
     Write-Host "$ConfluenceApiUsername"
