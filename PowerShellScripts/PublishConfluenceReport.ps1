@@ -17,11 +17,11 @@ confluence token
 .PARAMETER ConfluenceInventoryPageId
 The ID of the Page to publish to
 
-.PARAMETER confluenceTable
-The name of the confluence table
-
 .PARAMETER ReportTitle
 The name of the ReportTitle
+
+.PARAMETER confluenceTable
+The name of the confluence table
 
 .EXAMPLE
 PublishConfluenceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId) ConfluenceTable $(ConfluenceTable)
@@ -37,10 +37,10 @@ Param(
     [String]$ConfluenceApiTokenPass,
     [Parameter(Mandatory = $true)]
     [String]$ConfluenceInventoryPageId,
-    [parameter(Mandatory = $true)]
-    [object[]]$ConfluenceTable,
     [Parameter(Mandatory = $true)]
-    [String]$ReportTitle
+    [String]$ReportTitle,
+    [parameter(Mandatory = $true)]
+    [object[]]$ConfluenceTable
 )
 
 try {

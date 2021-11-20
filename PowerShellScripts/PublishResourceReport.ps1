@@ -49,9 +49,8 @@ try {
         -confluenceApiUsername $($ConfluenceApiUsername)
         -ConfluenceApiTokenPass $($ConfluenceApiTokenPass)
         -ConfluenceInventoryPageId $($ConfluenceInventoryPageId)
-        -ConfluenceTable $($ConfluenceTable)
         -ReportTitle "Resource Report"
-
+        -ConfluenceTable $($ConfluenceTable)
 }
 catch {
     throw $_
