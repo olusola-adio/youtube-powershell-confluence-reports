@@ -49,7 +49,13 @@ try {
     select-object ResourceGroupName, Name, ResourceType, Location |
     Sort-Object ResourceGroupName, Name
 
-    & $PSScriptRoot/PublishConfluenceReport.ps1 -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluenceInventoryPageId $($ConfluenceInventoryPageId) -ReportName $($ReportName) -ConfluenceTable $($ConfluenceTable)
+    & $PSScriptRoot/PublishConfluenceReport.ps1
+        -BaseURI $($BaseURI)
+        -confluenceApiUsername $($ConfluenceApiUsername)
+        -ConfluenceApiTokenPass $($ConfluenceApiTokenPass)
+        -ConfluenceInventoryPageId $($ConfluenceInventoryPageId)
+        -ReportName $($ReportName)
+        -ConfluenceTable $($ConfluenceTable)
 }
 catch {
     throw $_
