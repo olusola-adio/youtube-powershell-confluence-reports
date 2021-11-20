@@ -3,7 +3,6 @@ parameters:
   ConfluenceApiUsername:  ''
   ConfluenceApiTokenPass:  ''
   ConfluenceInventoryPageId:  ''
-  ReportTitle:  ''
  
 jobs:
 - job: PublishConfluenceInventoryReport
