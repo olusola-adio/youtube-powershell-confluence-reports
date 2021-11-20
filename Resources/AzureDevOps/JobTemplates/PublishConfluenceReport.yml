@@ -10,6 +10,18 @@ jobs:
   workspace:
       clean: all
   steps:
+  - task: PowerShell@2
+    displayName: 'Installing dependencies'
+    inputs:
+      script: 'Install-Module ConfluencePS -force'
+      workingDirectory: '$(System.DefaultWorkingDirectory)'
+      errorActionPreference: 'stop'
+  - task: PowerShell@2
+    displayName: 'Installing dependencies 2'
+    inputs:
+      script: 'Import-Module ConfluencePS -force'
+      workingDirectory: '$(System.DefaultWorkingDirectory)'
+      errorActionPreference: 'stop'
   - task: AzurePowerShell@5
     displayName: 'Publish Confluence Inventory Report'
     inputs:
