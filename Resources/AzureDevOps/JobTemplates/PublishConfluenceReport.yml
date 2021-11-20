@@ -33,7 +33,6 @@ jobs:
       ScriptArguments: '-BaseURI $(BaseURI)
                         -confluenceApiUsername $(ConfluenceApiUsername) 
                         -ConfluenceApiTokenPass $(ConfluenceApiTokenPass)  
-                        -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)
-                        -ReportTitle $(ReportTitle)'
+                        -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion

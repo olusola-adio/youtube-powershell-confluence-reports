@@ -34,7 +34,7 @@ Param(
     [String]$ConfluenceApiTokenPass,
     [Parameter(Mandatory = $true)]
     [String]$ConfluenceInventoryPageId,
-    [Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $false)]
     [String]$ReportTitle
 )
 
@@ -55,7 +55,7 @@ try {
         -ConfluenceApiTokenPass $($ConfluenceApiTokenPass)
         -ConfluenceInventoryPageId $($ConfluenceInventoryPageId)
         -ConfluenceTable $($ConfluenceTable)
-        -ReportTitle $($ReportTitle)
+        -ReportTitle "Resource Report"
 
 }
 catch {
