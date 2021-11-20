@@ -57,7 +57,7 @@ try {
     # $confluenceTable = $resources |
     # select-object ResourceGroupName, Name, ResourceType, Location |
     # Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
-    
+
     $Body = $confluenceTable | ConvertTo-ConfluenceStorageFormat
 
     $subscription = (get-azcontext).Subscription.Name
