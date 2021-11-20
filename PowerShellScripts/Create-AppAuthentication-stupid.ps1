@@ -42,9 +42,6 @@ Param(
 
 try {
 
-    Install-Module ConfluencePS -force
-    Import-Module ConfluencePS -force
-
     $resources = Get-AzResource
     foreach ($resource in $resources) {
         Write-Host "Name: $($resource.Name)       ResourceGroupName: $($resource.ResourceGroupName)        Resource Type: $($resource.ResourceType)       Location: $($resource.Location)"
@@ -57,6 +54,11 @@ try {
     # $confluenceTable = $resources |
     # select-object ResourceGroupName, Name, ResourceType, Location |
     # Sort-Object ResourceGroupName, Name | ConvertTo-ConfluenceTable | Out-String
+
+    Write-Host "$BaseURI"
+    Write-Host "$ConfluenceApiUsername"
+    Write-Host "$ConfluenceApiTokenPass"
+    Write-Host "$ConfluenceInventoryPageId"
 
     $Body = $confluenceTable | ConvertTo-ConfluenceStorageFormat
 
