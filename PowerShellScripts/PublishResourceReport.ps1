@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Create app authentication
+PublishResourceReport
 
 .DESCRIPTION
-Create app authentication
+PublishResourceReport - grabs a list of resources and sends the collection to the PublishConfluenceReport script
 
 .PARAMETER BaseURI
 The name of the BaseURI
@@ -21,7 +21,7 @@ The ID of the Page to publish to
 The name of the ReportTitle
 
 .EXAMPLE
-PublishConfluenceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)
+PublishResourceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId) ReportName $(ReportName)
 
 #>
 [CmdletBinding()]

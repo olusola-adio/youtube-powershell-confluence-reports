@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Create app authentication
+PublishConfluenceReport
 
 .DESCRIPTION
-Create app authentication
+PublishConfluenceReport - takes a collection and publishes it to Conflluence
 
 .PARAMETER BaseURI
 The name of the BaseURI
@@ -24,7 +24,7 @@ The name of the ReportTitle
 The name of the confluence table
 
 .EXAMPLE
-PublishConfluenceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId) ConfluenceTable $(ConfluenceTable)
+PublishConfluenceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId) ReportName $(ReportName) ConfluenceTable $(ConfluenceTable)
 
 #>
 [CmdletBinding()]
