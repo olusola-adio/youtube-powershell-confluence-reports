@@ -72,8 +72,7 @@ try {
 
     & $PSScriptRoot/PublishConfluenceReport.ps1 -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluenceInventoryPageId $($ConfluenceInventoryPageId) -ReportName $($ReportName) -ConfluenceTable $($OutputResults)
 
-
-} 
+}
 catch {
     throw $_
 }
