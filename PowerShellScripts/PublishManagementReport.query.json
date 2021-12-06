@@ -1,0 +1,51 @@
+{
+    "type": "Usage",
+    "timeframe": "MonthToDate",
+    "dataset": {
+      "granularity": "None",
+      "aggregation": {
+              "totalCost": {
+                  "name": "Cost",
+                  "function": "Sum"
+              },
+              "totalCostUSD": {
+                  "name": "CostUSD",
+                  "function": "Sum"
+              }
+          },
+      "grouping": [
+        {
+          "type": "Dimension",
+          "name": "ResourceId"
+        },
+        {
+          "type": "Dimension",
+          "name": "ResourceType"
+        },
+        {
+          "type": "Dimension",
+          "name": "ResourceLocation"
+        },
+        {
+          "type": "Dimension",
+          "name": "ResourceGroupName"
+        },
+        {
+          "type": "Dimension",
+          "name": "SubscriptionName"
+        },
+        {
+          "type": "Dimension",
+          "name": "ServiceName"
+        },
+        {
+          "type": "Dimension",
+          "name": "ServiceTier"
+        },
+        {
+          "type": "Dimension",
+          "name": "Meter"
+        }
+      ]
+    }
+  }

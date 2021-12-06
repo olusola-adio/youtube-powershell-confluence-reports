@@ -52,4 +52,5 @@ stages:
   jobs:
   - template: JobTemplates\PublishConfluenceReport.yml
     parameters:
-      ReportName: 'Resource Report'
+      InventoryReportName: 'Resource Report'
+      ManagementCostReportName: 'Management Cost Report'
