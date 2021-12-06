@@ -14,7 +14,7 @@ The name of the confluence user
 .PARAMETER confluenceApiTokenPass
 confluence token
 
-.PARAMETER ConfluenceInventoryPageId
+.PARAMETER ConfluencePageId
 The ID of the Page to publish to
 
 .PARAMETER ReportName
