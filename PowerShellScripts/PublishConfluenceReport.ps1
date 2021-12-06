@@ -36,7 +36,7 @@ Param(
     [Parameter(Mandatory = $true)]
     [String]$ConfluenceApiTokenPass,
     [Parameter(Mandatory = $true)]
-    [String]$ConfluenceInventoryPageId,
+    [String]$ConfluencePageId,
     [Parameter(Mandatory = $true)]
     [String]$ReportName,
     [parameter(Mandatory = $true)]
@@ -53,7 +53,7 @@ try {
 
     $subscription = (get-azcontext).Subscription.Name
     $timestamp = (Get-Date).ToString('F')
-    New-ConfluencePage -Title "$($ReportName) - $subscription - $timestamp" -Body $Body -ParentID $confluenceInventoryPageId
+    New-ConfluencePage -Title "$($ReportName) - $subscription - $timestamp" -Body $Body -ParentID $ConfluencePageId
 
 }
 catch {

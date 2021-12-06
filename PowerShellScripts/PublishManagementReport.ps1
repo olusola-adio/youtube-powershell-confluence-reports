@@ -14,7 +14,7 @@ The name of the confluence user
 .PARAMETER confluenceApiTokenPass
 confluence token
 
-.PARAMETER ConfluenceInventoryPageId
+.PARAMETER ConfluenceManagementCostPageId
 The ID of the Page to publish to
 
 .PARAMETER ReportName
@@ -33,7 +33,7 @@ Param(
     [Parameter(Mandatory = $true)]
     [String]$ConfluenceApiTokenPass,
     [Parameter(Mandatory = $true)]
-    [String]$ConfluenceInventoryPageId,
+    [String]$ConfluenceManagementCostPageId,
     [Parameter(Mandatory = $true)]
     [String]$ReportName
 )
@@ -70,7 +70,7 @@ try {
         $OutputResults += $obj
     }
 
-    & $PSScriptRoot/PublishConfluenceReport.ps1 -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluenceInventoryPageId $($ConfluenceInventoryPageId) -ReportName $($ReportName) -ConfluenceTable $($OutputResults)
+    & $PSScriptRoot/PublishConfluenceReport.ps1 -BaseURI $($BaseURI) -confluenceApiUsername $($ConfluenceApiUsername) -ConfluenceApiTokenPass $($ConfluenceApiTokenPass) -ConfluencePageId $($ConfluenceManagementCostPageId) -ReportName $($ReportName) -ConfluenceTable $($OutputResults)
 
 }
 catch {

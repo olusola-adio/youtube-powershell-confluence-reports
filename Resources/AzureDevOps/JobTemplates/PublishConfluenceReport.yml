@@ -30,7 +30,7 @@ jobs:
       ScriptArguments: '-BaseURI $(BaseURI)
                         -confluenceApiUsername $(ConfluenceApiUsername) 
                         -ConfluenceApiTokenPass $(ConfluenceApiTokenPass)  
-                        -ConfluencePageId $(ConfluenceInventoryPageId)
+                        -ConfluenceInventoryPageId $(ConfluenceInventoryPageId)
                         -ReportName "${{ parameters.InventoryReportName }}"'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion
@@ -42,7 +42,7 @@ jobs:
       ScriptArguments: '-BaseURI $(BaseURI)
                         -confluenceApiUsername $(ConfluenceApiUsername) 
                         -ConfluenceApiTokenPass $(ConfluenceApiTokenPass)  
-                        -ConfluencePageId $(ConfluenceManagementCostPageId)
+                        -ConfluenceManagementCostPageId $(ConfluenceManagementCostPageId)
                         -ReportName "${{ parameters.ManagementCostReportName }}"'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion
