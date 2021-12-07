@@ -34,13 +34,13 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy PowerShell Files to: $(Build.ArtifactStagingDirectory)'
       inputs:
-        Contents: 'PowerShellScripts/**/*.ps1'
+        Contents: 'PowerShellScripts/**/*.*'
         TargetFolder: '$(Build.ArtifactStagingDirectory)/Scripts'
         flattenFolders: true
     - task: PublishPipelineArtifact@1
       displayName: Publish Artifact
       inputs:
-        artifact: PowerShellScripts
+        artifact: Scripts
         targetPath: '$(Build.ArtifactStagingDirectory)/Scripts'
 
 - stage: PublishConfluenceReport

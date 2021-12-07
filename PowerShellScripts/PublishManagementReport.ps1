@@ -44,7 +44,7 @@ try {
 
 
     $subscription = (get-azcontext).Subscription
-    $fileContents = Get-Content .\PowerShellScripts\PublishManagementReport.query.json
+    $fileContents = Get-Content .\PublishManagementReport.query.json
 
     $token = (Get-AzAccessToken).Token
 
