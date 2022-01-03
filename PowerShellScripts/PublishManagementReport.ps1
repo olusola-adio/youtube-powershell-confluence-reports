@@ -21,7 +21,7 @@ The ID of the Page to publish to
 The name of the ReportTitle
 
 .EXAMPLE
-PublishResourceReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceInventoryPageId $(ConfluenceInventoryPageId) ReportName $(ReportName)
+PublishManagementReport -BaseURI $(BaseURI) -confluenceApiUsername $(ConfluenceApiUsername) -ConfluenceApiTokenPass $(ConfluenceApiTokenPass) -ConfluenceManagementCostPageId $(ConfluenceManagementCostPageId) -ReportName $(ReportName)
 
 #>
 [CmdletBinding()]
@@ -39,9 +39,6 @@ Param(
 )
 
 try {
-    Install-Module ConfluencePS -force
-    Import-Module ConfluencePS -force
-
 
     $subscription = (get-azcontext).Subscription
     $fileContents = Get-Content ..\Scripts\PublishManagementReport.query.json
